@@ -1,0 +1,56 @@
+---
+import { SEO } from 'astro-seo';
+
+const {
+    title = "Osmar Alejandro Liera Gomez | Desarrollador Web",
+    description = "Desarrollador web profesional especializado en crear soluciones digitales innovadoras y eficientes. Experto en desarrollo frontend y backend.",
+    ogImage = "https://your-domain.com/og-image.jpg",
+    pathname = "",
+} = Astro.props;
+
+const siteUrl = "https://your-domain.com";
+const canonicalURL = new URL(pathname, siteUrl);
+---
+
+<SEO
+    title={title}
+    description={description}
+    canonical={canonicalURL}
+    openGraph={{
+        basic: {
+            title: title,
+            type: "website",
+            image: ogImage,
+            url: canonicalURL,
+        },
+        optional: {
+            description: description,
+            locale: "es_MX",
+            siteName: "Osmar Alejandro Liera Gomez",
+        },
+    }}
+    twitter={{
+        creator: "@osmar",
+        card: "summary_large_image",
+        title: title,
+        description: description,
+        image: ogImage,
+    }}
+    extend={{
+        meta: [
+            { name: "viewport", content: "width=device-width, initial-scale=1" },
+            { name: "theme-color", content: "#4f46e5" },
+            { name: "keywords", content: "desarrollador web, programador, desarrollo frontend, desarrollo backend, México, desarrollo de software, aplicaciones web" },
+            { name: "geo.region", content: "MX" },
+            { name: "geo.placename", content: "México" },
+            { name: "author", content: "Osmar Alejandro Liera Gomez" },
+            { name: "robots", content: "index, follow" },
+            { name: "language", content: "Spanish" }
+        ],
+        link: [
+            { rel: "icon", href: "/favicon.ico" },
+            { rel: "sitemap", href: "/sitemap-index.xml" },
+            { rel: "alternate", hreflang: "es-MX", href: "https://your-domain.com" }
+        ]
+    }}
+/>

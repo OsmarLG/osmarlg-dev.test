@@ -1,0 +1,59 @@
+---
+import SEOHead from '../components/SEOHead.astro';
+
+interface Props {
+	title?: string;
+	description?: string;
+	image?: string;
+	pathname?: string;
+}
+
+const { 
+	title = "Osmar Alejandro Liera Gomez | Developer",
+	description = "Professional developer specializing in creating elegant solutions to complex problems. Expertise in frontend and backend development.",
+	image = "/og-image.jpg",
+	pathname = ""
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<SEOHead 
+			title={title}
+			description={description}
+			image={image}
+			pathname={pathname}
+		/>
+		<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+	</head>
+	<body class="bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-white">
+		<slot />
+		<script is:inline src="https://unpkg.com/aos@next/dist/aos.js"></script>
+		<script is:inline>
+			AOS.init({
+				duration: 800,
+				once: false,
+				mirror: true,
+			});
+		</script>
+	</body>
+</html>
+<style is:global>
+	:root {
+		--accent: 136, 58, 234;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), rgb(var(--accent-light)) 30%, white 60%);
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		scroll-behavior: smooth;
+	}
+	body {
+		margin: 0;
+		padding: 0;
+		min-height: 100vh;
+	}
+</style>

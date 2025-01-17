@@ -1,0 +1,60 @@
+---
+const profileImage = "https://images.unsplash.com/photo-1629904853716-f0bc54eea481?q=80&w=2070&auto=format&fit=crop";
+---
+
+<section id="about" class="py-20 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm">
+    <div class="container mx-auto px-4">
+        <h2 
+            class="text-4xl font-bold text-center mb-12"
+            data-aos="fade-down"
+        >
+            Sobre Mí
+        </h2>
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div 
+                class="relative rounded-lg overflow-hidden shadow-xl"
+                data-aos="fade-right"
+                data-aos-delay="200"
+            >
+                <img 
+                    src={profileImage} 
+                    alt="Osmar Alejandro Liera Gomez - Desarrollador Web"
+                    class="w-full h-auto rounded-lg"
+                    loading="lazy"
+                    width="800"
+                    height="600"
+                />
+            </div>
+            <div>
+                <p 
+                    class="text-lg mb-6"
+                    data-aos="fade-up"
+                    data-aos-delay="400"
+                >
+                    ¡Hola! Soy Osmar, un desarrollador apasionado por crear soluciones elegantes a problemas complejos. 
+                    Con una sólida base en desarrollo de software, me enfoco en escribir código limpio, eficiente y mantenible.
+                </p>
+                <p 
+                    class="text-lg mb-6"
+                    data-aos="fade-up"
+                    data-aos-delay="600"
+                >
+                    Creo en el aprendizaje continuo y en mantenerme actualizado con las últimas tecnologías y mejores prácticas 
+                    en el mundo del desarrollo de software en constante evolución.
+                </p>
+                <div 
+                    class="mt-12"
+                    data-aos="fade-up"
+                    data-aos-delay="800"
+                >
+                    <a 
+                        href="#contact" 
+                        class="inline-block bg-indigo-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-indigo-700 transition-all hover:scale-105"
+                    >
+                        Trabajemos Juntos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

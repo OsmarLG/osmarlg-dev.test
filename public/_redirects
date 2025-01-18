@@ -1,0 +1,8 @@
+# Redirect www to non-www
+https://www.deft-liger-4f0f16.netlify.app/* https://deft-liger-4f0f16.netlify.app/:splat 301!
+
+# Redirect default Netlify subdomain to primary domain
+https://deft-liger-4f0f16.netlify.app/* https://deft-liger-4f0f16.netlify.app/:splat 301!
+
+# Handle all routes for SPA
+/* /index.html 200

@@ -1,31 +1,45 @@
 ---
 import { SEO } from 'astro-seo';
 
-const {
-    title = "Osmar Alejandro Liera Gomez | Desarrollador Web",
-    description = "Desarrollador web profesional especializado en crear soluciones digitales innovadoras y eficientes. Experto en desarrollo frontend y backend.",
-    ogImage = "https://your-domain.com/og-image.jpg",
+const websiteURL = "https://deft-liger-4f0f16.netlify.app";
+const defaultTitle = "Osmar Alejandro Liera Gomez | Desarrollador Web";
+const defaultDescription = "Desarrollador web profesional especializado en crear soluciones digitales innovadoras y eficientes. Experto en desarrollo frontend y backend con más de 5 años de experiencia. Ofrezco servicios de desarrollo web, aplicaciones móviles y consultoría tecnológica para empresas en México y Latinoamérica.";
+const defaultOgImage = `${websiteURL}/og-image.jpg`;
+
+interface Props {
+    title?: string;
+    description?: string;
+    image?: string;
+    pathname?: string;
+    canonicalURL?: string;
+}
+
+const { 
+    title = defaultTitle,
+    description = defaultDescription,
+    image = defaultOgImage,
     pathname = "",
+    canonicalURL = websiteURL 
 } = Astro.props;
 
-const siteUrl = "https://your-domain.com";
-const canonicalURL = new URL(pathname, siteUrl);
+const fullURL = pathname ? `${websiteURL}${pathname}` : canonicalURL;
+
 ---
 
 <SEO
     title={title}
     description={description}
-    canonical={canonicalURL}
+    canonical={fullURL}
     openGraph={{
         basic: {
             title: title,
             type: "website",
-            image: ogImage,
-            url: canonicalURL,
+            image: image,
+            url: fullURL,
         },
         optional: {
             description: description,
-            locale: "es_MX",
+            locale: "es-MX",
             siteName: "Osmar Alejandro Liera Gomez",
         },
     }}
@@ -34,23 +48,22 @@ const canonicalURL = new URL(pathname, siteUrl);
         card: "summary_large_image",
         title: title,
         description: description,
-        image: ogImage,
+        image: image,
     }}
     extend={{
         meta: [
-            { name: "viewport", content: "width=device-width, initial-scale=1" },
-            { name: "theme-color", content: "#4f46e5" },
-            { name: "keywords", content: "desarrollador web, programador, desarrollo frontend, desarrollo backend, México, desarrollo de software, aplicaciones web" },
+            { name: "keywords", content: "desarrollador web México, programador frontend, desarrollo backend, desarrollo de software, aplicaciones web, desarrollo web profesional, consultoría tecnológica, servicios web México" },
             { name: "geo.region", content: "MX" },
             { name: "geo.placename", content: "México" },
             { name: "author", content: "Osmar Alejandro Liera Gomez" },
             { name: "robots", content: "index, follow" },
+            { httpEquiv: "content-language", content: "es-MX" },
             { name: "language", content: "Spanish" }
         ],
         link: [
-            { rel: "icon", href: "/favicon.ico" },
-            { rel: "sitemap", href: "/sitemap-index.xml" },
-            { rel: "alternate", hreflang: "es-MX", href: "https://your-domain.com" }
+            { rel: "canonical", href: fullURL },
+            { rel: "alternate", hreflang: "es-MX", href: fullURL },
+            { rel: "alternate", hreflang: "x-default", href: fullURL }
         ]
     }}
 />
